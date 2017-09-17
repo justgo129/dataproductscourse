@@ -6,7 +6,7 @@ data(sunspots)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Sunspots by Month"),
+  titlePanel("Sunspots by Year and Month"),
   
   # Sidebars allowing users to select months and years to plot
   sidebarLayout(
