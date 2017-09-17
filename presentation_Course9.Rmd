@@ -1,0 +1,46 @@
+---
+title: "Plots of Sunspots: A Project in Fulfillment of Course 9 of the Data Science Specialty"
+author: "Justin G."
+date: "September 16, 2017"
+output:
+  ioslides_presentation: default
+  slidy_presentation: default
+---
+
+```{r initialize, echo=FALSE,  warning=F, message=F}
+library(knitr); library(rmarkdown)
+```
+
+## Rationale
+- Many look at sunspot cycles to study space weather and astronomy.
+- Time series of sunspots reveal cyclical patterns.
+- Mean relative sunspot numbers from 1749-1983 were collected at the Swiss Federal Observatory until 1960,
+and then by the Tokyo Astronomical Observatory.
+- These data are freely available in R by typing *sunspots*.  More dataset information: type *?sunspots* in R.
+
+## This Project
+- Hosts interactive plot on [http://shinyapps.io](http://shinyapps.io), allowing the user to view a plot of mean sunspot numbers by month and year of his/her choice.
+- Uses sliders to modify plots (not shown in this presentation).
+- Can be used as an **initial** step for subsequent data analysis, correlation of sunspots with other environmental phenomena, etc.
+- Y-axis values change in response to user's input for X axis (month or yr, depending on plot)
+- Of course, it is up to the user to choose a month or yr (see actual app).
+
+## Plot examples - choose a year
+```{r one_plot, echo=TRUE, warning=F, message=F, fig.cap="1st plot: choose a year (here: 1751)"}
+sunspotsbymonth<-matrix(sunspots, ncol=13)
+plot(sunspotsbymonth[3,], xlim=c(1,12), xlab="Calendar Month", 
+         ylab="Number of sunspots per month", pch=19, cex=2, col="red")
+```
+
+## Plot examples - choose a month
+```{r two_plots, echo=TRUE, warning=F, message=F, fig.cap="2nd plot: choose a month (here July)"}
+sunspotsbymonth<-matrix(sunspots, ncol=13)
+plot(sunspotsbymonth[,7], xlab="Calendar Year", xaxt="n",
+        ylab="Number of sunspots per year", pch=17, cex=1.5, col="blue")
+    axis(1, at=1:235, labels=c(1749:1983))
+```
+
+## Conclusions
+- **Interactive** Shiny app available at: https://justgo129.shinyapps.io/course9project/
+- Looking forward to your view!
+
