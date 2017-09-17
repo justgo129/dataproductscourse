@@ -17,11 +17,14 @@ shinyUI(fluidPage(
     ),
     
     mainPanel(
-      h3("Plot of sunspots for that year"),
+      h2("Using the sidebars, choose a year and/or month to plot.  Plots will appear.  Note that the plotting
+         occurs in real time; the plots update upon selection in the sliders."),
+      h3("Plot of sunspots for the chosen year"),
       plotOutput("plot1"),
       
-      h3("Plot of sunspots for that month: this is independent of above plot."),
+      h3("Plot of sunspots for the chosen month.  This is independent of above plot."),
       plotOutput("plot2")
+      
     )
   )
 )
